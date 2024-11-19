@@ -17,7 +17,15 @@ app.use('/api', createProxyMiddleware({
   },
 }));
 
-const PORT = process.env.PORT || 8080;
+app.use('/test', createProxyMiddleware({
+  target: 'https://apitest.myfatoorah.com',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/test': '', // Remove /api prefix
+  },
+}));
+
+const PORT = process.env.PORT || 443;
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
 });
