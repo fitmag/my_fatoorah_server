@@ -1,3 +1,4 @@
+
 // proxy-server.js
 const express = require('express');
 const cors = require('cors');
@@ -27,5 +28,4 @@ app.use('/test', createProxyMiddleware({
 
 const PORT = process.env.PORT || 443;
 app.listen(PORT, () => {
-  console.log(`Proxy server running on port ${PORT}`);
-});
+  console.log(`Proxy server running on port ${PORT}`)});
